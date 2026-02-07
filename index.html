@@ -46,6 +46,7 @@
       background: hsl(var(--background));
       color: hsl(var(--foreground));
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
     }
 
     h1, h2, h3, h4, h5, h6 { font-family: 'Bebas Neue', sans-serif; }
@@ -72,110 +73,10 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    @keyframes bounce { 0%, 100% { transform: translateY(-25%) translateX(-50%); } 50% { transform: translateY(0) translateX(-50%); } }
 
     .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
     .animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
     .animate-float { animation: float 6s ease-in-out infinite; }
-
-    /* ===== HEADER ===== */
-    .header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      border-bottom: 1px solid hsl(var(--border));
-    }
-    .header .inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
-    .header .logo-img { height: 4rem; width: auto; }
-    .header nav { display: flex; align-items: center; gap: 2rem; }
-    .header nav button {
-      background: none; border: none; cursor: pointer;
-      color: hsl(var(--foreground) / 0.8); font-family: 'Open Sans', sans-serif;
-      font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .header nav button:hover { color: hsl(var(--foreground)); }
-    .header .actions { display: flex; align-items: center; gap: 1rem; }
-    .cart-btn {
-      position: relative; padding: 0.5rem; border-radius: 50%;
-      background: hsl(var(--accent) / 0.1); border: none; cursor: pointer;
-      transition: background 0.2s;
-    }
-    .cart-btn:hover { background: hsl(var(--accent) / 0.2); }
-    .cart-btn svg { width: 20px; height: 20px; color: hsl(var(--accent)); }
-    .cart-badge {
-      position: absolute; top: -4px; right: -4px;
-      width: 20px; height: 20px; background: hsl(var(--accent));
-      color: hsl(var(--accent-foreground)); font-size: 0.75rem; font-weight: 600;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    }
-    .mobile-menu-btn { display: none; padding: 0.5rem; background: none; border: none; cursor: pointer; }
-    .mobile-menu-btn svg { width: 24px; height: 24px; color: hsl(var(--foreground)); }
-    .mobile-nav { display: none; padding: 1rem 0; border-top: 1px solid hsl(var(--border)); }
-    .mobile-nav.open { display: flex; flex-direction: column; gap: 1rem; }
-    .mobile-nav button {
-      background: none; border: none; cursor: pointer; text-align: left; padding: 0.5rem 0;
-      color: hsl(var(--foreground) / 0.8); font-family: 'Open Sans', sans-serif; text-transform: uppercase;
-    }
-
-    @media (max-width: 768px) {
-      .header nav.desktop { display: none; }
-      .mobile-menu-btn { display: block; }
-      .header .inner { height: 4rem; }
-      .header .logo-img { height: 3rem; }
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative; min-height: 100vh; display: flex; align-items: center;
-      justify-content: center; padding-top: 5rem; overflow: hidden;
-    }
-    .hero .bg-orb { position: absolute; border-radius: 50%; filter: blur(48px); }
-    .hero .bg-orb-1 { top: 5rem; left: 2.5rem; width: 8rem; height: 8rem; background: hsl(var(--accent) / 0.1); }
-    .hero .bg-orb-2 { bottom: 5rem; right: 2.5rem; width: 10rem; height: 10rem; background: hsl(var(--accent) / 0.15); }
-    .hero .bg-orb-3 { top: 50%; left: 25%; width: 6rem; height: 6rem; background: hsl(var(--gold) / 0.1); }
-    .hero .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding: 5rem 0; }
-    .hero .text-content { text-align: left; }
-    .hero .subtitle {
-      display: inline-block; color: hsl(var(--accent)); font-size: 0.875rem;
-      letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .hero h1 { font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
-    .hero h1 .accent-text { color: hsl(var(--accent)); }
-    .hero .desc { color: hsl(var(--muted-foreground)); font-size: 1.125rem; line-height: 1.7; margin-bottom: 2rem; max-width: 32rem; }
-    .hero .cta-btn {
-      padding: 1rem 2rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground));
-      border: none; border-radius: 9999px; font-family: 'Open Sans', sans-serif;
-      font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase;
-      cursor: pointer; transition: opacity 0.2s; box-shadow: var(--shadow-elegant);
-    }
-    .hero .cta-btn:hover { opacity: 0.9; }
-    .hero .logo-area { display: flex; justify-content: center; position: relative; }
-    .hero .logo-area .glow {
-      position: absolute; inset: -1rem; background: linear-gradient(to bottom right, hsl(var(--accent) / 0.2), transparent);
-      border-radius: 50%; filter: blur(16px);
-    }
-    .hero .logo-area img { width: 100%; max-width: 24rem; height: auto; object-fit: contain; position: relative; filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15)); }
-    .hero .floating-badge {
-      position: absolute; bottom: -1rem; right: -1rem;
-      background: hsl(var(--card)); padding: 0.5rem 1rem; border-radius: 9999px;
-      box-shadow: var(--shadow-soft); border: 1px solid hsl(var(--border));
-    }
-    .hero .floating-badge span { font-family: 'Bebas Neue', sans-serif; font-size: 1.125rem; color: hsl(var(--accent)); letter-spacing: 0.05em; }
-    .hero .scroll-indicator {
-      position: absolute; bottom: 2rem; left: 50%;
-      width: 1.5rem; height: 2.5rem; border: 2px solid hsl(var(--muted-foreground) / 0.3);
-      border-radius: 9999px; display: flex; justify-content: center;
-      animation: bounce 2s infinite;
-    }
-    .hero .scroll-indicator .dot { width: 4px; height: 8px; background: hsl(var(--muted-foreground) / 0.5); border-radius: 9999px; margin-top: 0.5rem; }
-
-    @media (max-width: 768px) {
-      .hero .grid { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; }
-      .hero .text-content { text-align: center; order: 2; }
-      .hero .logo-area { order: 1; }
-      .hero .logo-area img { max-width: 16rem; }
-      .hero .desc { margin: 0 auto 2rem; }
-      .hero .scroll-indicator { display: none; }
-    }
 
     /* ===== ABOUT ===== */
     .about { padding: 4rem 0 6rem; background: hsl(var(--secondary) / 0.3); position: relative; overflow: hidden; }
@@ -260,49 +161,57 @@
     }
     .product-card .add-btn:hover { opacity: 0.9; }
 
-    /* ===== LOCATION ===== */
-    .location { padding: 4rem 0 6rem; background: hsl(var(--secondary) / 0.3); }
+    /* ===== LOCATION (dark theme) ===== */
+    .location { padding: 4rem 0 6rem; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
     .location .inner { max-width: 64rem; margin: 0 auto; }
     .location .header-area { text-align: center; margin-bottom: 3rem; }
     .location .subtitle { display: inline-block; color: hsl(var(--accent)); font-size: 0.875rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; }
-    .location h2 { font-size: clamp(2.5rem, 5vw, 3.75rem); margin-bottom: 1rem; letter-spacing: 0.05em; }
-    .location .desc { color: hsl(var(--muted-foreground)); max-width: 36rem; margin: 0 auto; }
+    .location h2 { font-size: clamp(2.5rem, 5vw, 3.75rem); margin-bottom: 1rem; letter-spacing: 0.05em; color: hsl(var(--primary-foreground)); }
+    .location .desc { color: hsl(var(--primary-foreground) / 0.7); max-width: 36rem; margin: 0 auto; }
     .location .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .location .map-card { background: hsl(var(--card)); border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid hsl(var(--border)); }
+    .location .map-card { background: hsl(var(--primary-foreground) / 0.1); border-radius: 1rem; overflow: hidden; border: 1px solid hsl(var(--primary-foreground) / 0.2); }
     .location .map-card img { width: 100%; height: 100%; min-height: 16rem; object-fit: cover; }
     .location .info-cards { display: flex; flex-direction: column; gap: 1.5rem; }
     .location .info-card {
-      background: hsl(var(--card)); border-radius: 1rem; padding: 1.5rem;
-      box-shadow: var(--shadow-card); border: 1px solid hsl(var(--border));
+      background: hsl(var(--primary-foreground) / 0.1); border-radius: 1rem; padding: 1.5rem;
+      border: 1px solid hsl(var(--primary-foreground) / 0.2);
       display: flex; align-items: flex-start; gap: 1rem;
     }
     .location .icon-circle {
       width: 3rem; height: 3rem; min-width: 3rem; border-radius: 50%;
-      background: hsl(var(--accent) / 0.1); display: flex; align-items: center; justify-content: center;
+      background: hsl(var(--accent) / 0.2); display: flex; align-items: center; justify-content: center;
     }
     .location .icon-circle svg { width: 20px; height: 20px; color: hsl(var(--accent)); }
-    .location .info-card h3 { font-size: 1.25rem; margin-bottom: 0.25rem; letter-spacing: 0.05em; }
-    .location .info-card p { color: hsl(var(--muted-foreground)); font-size: 0.875rem; line-height: 1.6; }
-    .location .info-card .highlight { color: hsl(var(--foreground)); font-weight: 500; }
+    .location .info-card h3 { font-size: 1.25rem; margin-bottom: 0.25rem; letter-spacing: 0.05em; color: hsl(var(--primary-foreground)); }
+    .location .info-card p { color: hsl(var(--primary-foreground) / 0.7); font-size: 0.875rem; line-height: 1.6; }
+    .location .info-card .highlight { color: hsl(var(--primary-foreground)); font-weight: 500; }
 
     @media (max-width: 1024px) { .location .grid { grid-template-columns: 1fr; } }
 
-    /* ===== FOOTER ===== */
-    .footer { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); padding: 3rem 0; text-align: center; }
-    .footer .logo-img { height: 6rem; width: auto; margin-bottom: 1.5rem; }
-    .footer .tagline { color: hsl(var(--primary-foreground) / 0.8); margin-bottom: 1.5rem; max-width: 28rem; margin-left: auto; margin-right: auto; }
-    .footer .social-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
-    .footer .social-link {
-      width: 2.5rem; height: 2.5rem; border-radius: 50%;
-      background: hsl(var(--primary-foreground) / 0.1); border: none;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: background 0.2s; color: hsl(var(--primary-foreground));
-      text-decoration: none;
+    /* ===== BOTTOM TAB BAR ===== */
+    .bottom-tab-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+      border-top: 1px solid hsl(var(--border));
+      padding-bottom: env(safe-area-inset-bottom, 0px);
     }
-    .footer .social-link:hover { background: hsl(var(--primary-foreground) / 0.2); }
-    .footer .divider { width: 16rem; height: 1px; background: hsl(var(--primary-foreground) / 0.2); margin: 0 auto 1.5rem; }
-    .footer .copyright { font-size: 0.875rem; color: hsl(var(--primary-foreground) / 0.6); display: flex; align-items: center; justify-content: center; gap: 0.25rem; }
-    .footer .copy-small { font-size: 0.75rem; color: hsl(var(--primary-foreground) / 0.4); margin-top: 0.5rem; }
+    .bottom-tab-bar .tabs {
+      display: flex; align-items: center; justify-content: space-around; height: 4rem;
+    }
+    .bottom-tab-bar .tab-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; flex: 1; padding: 0.5rem 0; background: none; border: none; cursor: pointer;
+      color: hsl(var(--foreground) / 0.6); transition: color 0.2s;
+    }
+    .bottom-tab-bar .tab-btn:hover { color: hsl(var(--accent)); }
+    .bottom-tab-bar .tab-btn svg { width: 20px; height: 20px; }
+    .bottom-tab-bar .tab-btn span { font-size: 10px; font-family: 'Open Sans', sans-serif; letter-spacing: 0.05em; }
+    .bottom-tab-bar .tab-btn.pedidos { position: relative; }
+    .bottom-tab-bar .tab-badge {
+      position: absolute; top: 4px; right: 25%;
+      width: 16px; height: 16px; background: hsl(var(--accent)); color: hsl(var(--accent-foreground));
+      font-size: 9px; font-weight: 600; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
 
     /* ===== CART SIDEBAR ===== */
     .cart-backdrop {
@@ -402,7 +311,7 @@
     .cart-sidebar .whatsapp-btn:hover { background: #15803d; }
 
     /* Toast */
-    .toast-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 100; }
+    .toast-container { position: fixed; bottom: 5rem; right: 1.5rem; z-index: 100; }
     .toast {
       padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-size: 0.875rem;
       box-shadow: var(--shadow-elegant); animation: fadeIn 0.3s, fadeOut 0.3s 2.7s forwards;
@@ -415,65 +324,7 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header glass-cream" id="site-header">
-    <div class="container">
-      <div class="inner">
-        <a href="/"><img src="https://i.ibb.co/placeholder-logo" alt="Brasa & Pão" class="logo-img" id="header-logo" /></a>
-        <nav class="desktop">
-          <button onclick="scrollTo('sobre')">Sobre</button>
-          <button onclick="scrollTo('catalogo')">Cardápio</button>
-          <button onclick="scrollTo('localizacao')">Localização</button>
-        </nav>
-        <div class="actions">
-          <button class="cart-btn" onclick="openCart()" aria-label="Abrir carrinho">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <span class="cart-badge" id="cart-badge" style="display:none">0</span>
-          </button>
-          <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
-            <svg id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            <svg id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
-          </button>
-        </div>
-      </div>
-      <nav class="mobile-nav" id="mobile-nav">
-        <button onclick="scrollTo('sobre')">Sobre</button>
-        <button onclick="scrollTo('catalogo')">Cardápio</button>
-        <button onclick="scrollTo('localizacao')">Localização</button>
-      </nav>
-    </div>
-  </header>
-
   <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="bg-orb bg-orb-1"></div>
-      <div class="bg-orb bg-orb-2"></div>
-      <div class="bg-orb bg-orb-3"></div>
-      <div class="container">
-        <div class="grid">
-          <div class="text-content animate-slide-up">
-            <span class="subtitle">Hamburgueria Artesanal</span>
-            <h1>
-              <span class="text-gradient-chocolate">SABOR</span>
-              <span class="accent-text"> NA</span><br />
-              <span class="text-gradient-chocolate">BRASA</span>
-            </h1>
-            <p class="desc">Hambúrgueres artesanais feitos com ingredientes selecionados, carne de primeira e o sabor único da brasa. Uma experiência que vai além do paladar.</p>
-            <button class="cta-btn" onclick="scrollTo('catalogo')">Ver Cardápio</button>
-          </div>
-          <div class="logo-area animate-fade-in">
-            <div class="glow"></div>
-            <img id="hero-logo" alt="Brasa & Pão" />
-            <div class="floating-badge animate-float">
-              <span>100% Artesanal</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="scroll-indicator"><div class="dot"></div></div>
-    </section>
-
     <!-- ABOUT -->
     <section class="about" id="sobre">
       <div class="bg-pattern"></div>
@@ -521,7 +372,7 @@
       <div class="container inner">
         <div class="header-area">
           <span class="subtitle">Visite-nos</span>
-          <h2 class="text-gradient-chocolate">LOCALIZAÇÃO</h2>
+          <h2>LOCALIZAÇÃO</h2>
           <p class="desc">Venha conhecer nossa hamburgueria ou peça pelo WhatsApp!</p>
         </div>
         <div class="grid">
@@ -555,21 +406,28 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container" style="display:flex;flex-direction:column;align-items:center;">
-      <img id="footer-logo" alt="Brasa & Pão" class="logo-img" />
-      <p class="tagline">Hambúrgueres artesanais feitos com paixão e ingredientes de qualidade. Venha sentir o sabor da brasa!</p>
-      <div class="social-links">
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-        </a>
-      </div>
-      <div class="divider"></div>
-      <p class="copyright">Feito com 🔥 em 2025</p>
-      <p class="copy-small">© Brasa & Pão - Hamburgueria Artesanal. Todos os direitos reservados.</p>
+  <!-- BOTTOM TAB BAR -->
+  <nav class="bottom-tab-bar glass-cream" id="bottom-tab-bar">
+    <div class="tabs">
+      <button class="tab-btn" onclick="scrollTo('sobre')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Início</span>
+      </button>
+      <button class="tab-btn" onclick="scrollTo('catalogo')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6"/><path d="M22 12h-6"/><path d="m9 7 3-4 3 4"/><path d="m15 17-3 4-3-4"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Cardápio</span>
+      </button>
+      <button class="tab-btn" onclick="scrollTo('localizacao')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Local</span>
+      </button>
+      <button class="tab-btn pedidos" onclick="openCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="tab-badge" id="tab-badge" style="display:none">0</span>
+        <span>Pedidos</span>
+      </button>
     </div>
-  </footer>
+  </nav>
 
   <!-- CART BACKDROP -->
   <div class="cart-backdrop" id="cart-backdrop" onclick="closeCart()"></div>
@@ -597,7 +455,6 @@
     const WHATSAPP_NUMBER = "5511947785535";
     const CATEGORIES = ["Todos", "Hamburguer", "Acompanhamento", "Bebidas", "Sobremesa", "Combos"];
 
-    // Use the same logo from the deployed app's assets
     const LOGO_URL = "https://i.postimg.cc/mZHbM6ZX/brasa-e-p-o.webp";
 
     const SAMPLE_PRODUCTS = [
@@ -630,17 +487,6 @@
 
     function scrollTo(id) {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      const mobileNav = document.getElementById("mobile-nav");
-      mobileNav.classList.remove("open");
-      document.getElementById("menu-icon").style.display = "";
-      document.getElementById("close-icon").style.display = "none";
-    }
-
-    function toggleMobileMenu() {
-      const nav = document.getElementById("mobile-nav");
-      const isOpen = nav.classList.toggle("open");
-      document.getElementById("menu-icon").style.display = isOpen ? "none" : "";
-      document.getElementById("close-icon").style.display = isOpen ? "" : "none";
     }
 
     // ===== CART =====
@@ -648,7 +494,7 @@
     function getSubtotal() { return cart.reduce((a, i) => a + i.price * i.quantity, 0); }
 
     function updateCartBadge() {
-      const badge = document.getElementById("cart-badge");
+      const badge = document.getElementById("tab-badge");
       const count = getCartCount();
       badge.style.display = count > 0 ? "flex" : "none";
       badge.textContent = count;
@@ -910,10 +756,7 @@
 
     // ===== INIT =====
     async function init() {
-      // Set logo images — use a placeholder text if no external URL
-      // The logos reference the bundled asset which isn't available in standalone HTML
-      // We'll try to load from the preview URL
-      document.querySelectorAll('#header-logo, #hero-logo, #about-logo, #footer-logo').forEach(img => {
+      document.querySelectorAll('#about-logo').forEach(img => {
         img.src = LOGO_URL;
       });
 
