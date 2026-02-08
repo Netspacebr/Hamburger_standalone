@@ -409,15 +409,15 @@
   <!-- BOTTOM TAB BAR -->
   <nav class="bottom-tab-bar glass-cream" id="bottom-tab-bar">
     <div class="tabs">
-      <button class="tab-btn" onclick="scrollTo('sobre')">
+      <button class="tab-btn" onclick="scrollToSection('sobre')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <span>Início</span>
       </button>
-      <button class="tab-btn" onclick="scrollTo('catalogo')">
+      <button class="tab-btn" onclick="scrollToSection('catalogo')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6"/><path d="M22 12h-6"/><path d="m9 7 3-4 3 4"/><path d="m15 17-3 4-3-4"/><circle cx="12" cy="12" r="3"/></svg>
         <span>Cardápio</span>
       </button>
-      <button class="tab-btn" onclick="scrollTo('localizacao')">
+      <button class="tab-btn" onclick="scrollToSection('localizacao')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         <span>Local</span>
       </button>
@@ -485,7 +485,7 @@
       setTimeout(() => toast.remove(), 3000);
     }
 
-    function scrollTo(id) {
+    function scrollToSection(id) {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
 
@@ -543,7 +543,7 @@
           <div class="empty-cart">
             <div class="empty-icon">🍔</div>
             <p>Seu carrinho está vazio</p>
-            <button class="see-menu-btn" onclick="closeCart();scrollTo('catalogo')">Ver Cardápio</button>
+            <button class="see-menu-btn" onclick="closeCart();scrollToSection('catalogo')">Ver Cardápio</button>
           </div>`;
         footer.style.display = "none";
         return;
